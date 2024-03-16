@@ -4,7 +4,7 @@ from os import environ
 import pandas as pd
 import numpy as np
 
-import process_csv
+import helpers
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
@@ -66,13 +66,13 @@ def create_meteor_checklist():
 
     try:
         df = pd.read_csv(file)
-        cases = process_csv.read_cases(df)
+        cases = helpers.read_cases(df)
         if not cases:
             return make_response(jsonify({'error': 'No cases seen'}), 500)
         else:
             id = 1
             for i in range(len(cases)):
-                rows = process_csv.create_case(cases[i], 8)
+                rows = helpers.create_case(cases[i], 8)
                 for j in range(len(rows)):
                     data = rows[j]
                     data = {key: int(value) if isinstance(value, np.int64) else value for key, value in data.items()}
