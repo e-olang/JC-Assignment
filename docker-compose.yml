@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   flask_app:
-    container_name: test
-    image: ol
+    container_name: jc
+    image: jc_api
     build: .
     ports:
       - "4000:4000"
@@ -12,7 +12,7 @@ services:
     depends_on:
       - flask_db
   flask_db:
-    container_name: test_db
+    container_name: jc_db
     image: postgres:16
     ports:
       - "5432:5432"
