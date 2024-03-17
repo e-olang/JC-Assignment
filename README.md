@@ -1,16 +1,16 @@
 # JC-Assignment
 
-----
+
 ## API
 
 ### Dependencies
 The application utilizes the following libraries:
 
-- Flask: Web framework for building web applications.
-- Flask-SQLAlchemy: SQLAlchemy integration for Flask.
-- SQLAlchemy: For object-relational mapping.
-- pandas: For reading the 'Test CSV' file
-- numpy: For converting items to integers.
+- Flask (version 3.0.2)
+- Flask-SQLAlchemy (version  3.1.1)
+- SQLAlchemy: For object-relational mapping (version 2.0)
+- pandas: For reading the 'Test CSV' file (version 2.0)
+- numpy: For converting items to integers. (version 1.24)
 - helpers: Custom Python module for CSV file handling functions.
 
 
@@ -70,8 +70,9 @@ The is an alternative create csa function 'create_case_combined', that creates s
 
 
 1. **read_cases()**
-- Splits a DataFrame into individual cases, where each row represents a case.
-- Returns: A list of DataFrames, where each DataFrame contains a single case.
+- Reads input CSV using pandas
+- Splits the DataFrame into individual cases, where each row represents a case.
+- Returns: A list of DataFrames, where each DataFrame contains a single case (contains all original columns including empty ones).
 
 2. **create_cases_combined()**
 - Processes a single case DataFrame for loading into the database.
@@ -137,7 +138,7 @@ def drill(row):
 - Send Request
 
 <br>
-<img src="Assets/postreq.png" alt="DB Table">
+<img src="Assets/postreq.png">
 
 ##### Expected Response:
 
@@ -146,9 +147,9 @@ def drill(row):
     "message": "Data loaded well"
 }
 ```
-- Upon successful data upload, a response code of 201 Created will be returned. wiith the message <br>
 
-- Upon Checking the DB, the fetched data should be visible in the meteor checklist table
+
+- Upon Checking the DB (DBeaver), the fetched data should be visible in the meteor checklist table
 
 <br>
 
@@ -180,11 +181,12 @@ def drill(row):
 
 ----
 
-## Testing the / (GET) Endpoint
+## Testing the / (GET) Default Endpoint
 
 - Create a GET Request
 - Set endpoint to: http://localhost:4000/
 - Send Request
+
 
 ##### Expected Response:
 
