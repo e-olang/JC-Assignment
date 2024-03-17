@@ -173,7 +173,7 @@ def drill(row):
 2. **Duplicate Keys**
 ```json
 {
-    "details": ""details": "(psycopg2.errors.UniqueViolation) duplicate key value violates......",
+    "details": "details": "(psycopg2.errors.UniqueViolation) duplicate key value violates......",
     "error": "Error reading provided CSV file"
 }
 ```
