@@ -7,9 +7,9 @@ def cme(row):
     cme_id =  "mentor_checklist/cme_grp/standard_phone_numbers_cme/id_number_1_001"
 
     if row.get(cme_col, None) is not None:
-        return row.get(cme_col, None), int(row.get(cme_id, None)), "False"
+        return row.get(cme_col, None), int(row.get(cme_id, None)), False
     else:
-        return None, None, "True"
+        return None, None, True
 
 
 def drill(row):
@@ -17,9 +17,9 @@ def drill(row):
     drill_id =  "mentor_checklist/drills_grp/id_numbers_drill/id_drill_1"
 
     if row.get(drill_col, None) is not None:
-        return row.get(drill_col, None), int(row.get(drill_id, None)), "False"
+        return row.get(drill_col, None), int(row.get(drill_id, None)), False
     else:
-        return None, None, "True"
+        return None, None, True
 
 
 def read_cases(original_df):

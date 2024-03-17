@@ -72,7 +72,7 @@ def create_meteor_checklist():
         else:
             id = 1
             for i in range(len(cases)):
-                rows = helpers.create_case(cases[i], 8)
+                rows = helpers.create_case_combined(cases[i])
                 for j in range(len(rows)):
                     data = rows[j]
                     data = {key: int(value) if isinstance(value, np.int64) else value for key, value in data.items()}
