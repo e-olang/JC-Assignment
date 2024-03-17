@@ -32,26 +32,6 @@ class MeteorChecklist(db.Model):
     submission_id = db.Column(db.BigInteger)
     success_story = db.Column(db.Text)
 
-    def json(self):
-        return {
-            'id': self.id,
-            'cme_completion_date': str(self.cme_completion_date),
-            'cme_topic': self.cme_topic,
-            'cme_unique_id': self.cme_unique_id,
-            'county': self.county,
-            'date_submitted': str(self.date_submitted),
-            'drill_topic': self.drill_topic,
-            'drill_unique_id': self.drill_unique_id,
-            'essential_cme_topic': self.essential_cme_topic,
-            'essential_drill_topic': self.essential_drill_topic,
-            'facility_code': self.facility_code,
-            'facility_name': self.facility_name,
-            'id_number_cme': self.id_number_cme,
-            'id_number_drill': self.id_number_drill,
-            'mentor_name': self.mentor_name,
-            'submission_id': self.submission_id,
-            'success_story': self.success_story
-        }
 
 db.create_all()
 
@@ -107,7 +87,12 @@ def create_meteor_checklist():
     
 
 
-# TEST Endpoint lch/port
+# Default
+@app.route('/')
+def default_endpoint():
+    return make_response(jsonify({"message": "Container Running, use /write for csv test"}), 200)
+
+
 @app.route('/test', methods=['GET'])
 def test():
     return make_response(jsonify({'message': 'env running well'}), 200)
